@@ -1,3 +1,5 @@
+#ifndef POINT_H
+#define POINT_H
 #include <GL/glut.h>
 
 class Point
@@ -20,3 +22,13 @@ public:
 	float GetY()	{return _y;}
 	float GetZ()	{return _z;}
 };
+
+
+class Color
+{
+public:
+	float R, G, B, A;
+
+	Color(float r = 1.0f, float g = 1.0f, float b = 1.0f, float a = 1.0f);
+};
+#endif

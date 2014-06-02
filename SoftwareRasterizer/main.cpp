@@ -27,6 +27,11 @@ void HandleResize(int w, int h) {
 				   200.0);                //The far z clipping coordinate
 }
 
+void Close()
+{
+	delete rasterizer;
+}
+
 int main(int argc, char ** argv) {
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
@@ -34,10 +39,11 @@ int main(int argc, char ** argv) {
 	glutCreateWindow("Software Rasterizer");
 
 	glEnable(GL_DEPTH_TEST);
+	rasterizer = new Rasterizer();
 
 	glutDisplayFunc(DrawScene);
 	glutReshapeFunc(HandleResize);
-
+	glutCloseFunc(Close);
 	glutMainLoop();
 
 	return 0;
